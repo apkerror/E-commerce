@@ -1,0 +1,134 @@
+
+/* Define a aparência geral da página */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Organiza o conteúdo principal e limita sua largura */
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* Estiliza o título principal */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Organiza os elementos da área de consulta */
+.consulta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+/* Estiliza o campo de pesquisa */
+.consulta input {
+    padding: 12px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Estiliza os botões */
+button {
+    background-color: #198754;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Altera a cor do botão quando o mouse passa sobre ele */
+button:hover {
+    background-color: #146c43;
+}
+
+/* Organiza os cards em uma grade responsiva */
+#lista-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Define a aparência dos cards */
+.product-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Cria um efeito de elevação ao passar o mouse sobre o card */
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Define o tamanho e o comportamento das imagens */
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Organiza as informações dentro dos cards */
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estiliza o nome do produto */
+.product-title {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Estiliza a descrição do produto */
+.product-description {
+    font-size: 0.9rem;
+    color: #666;
+    min-height: 48px;
+}
+
+/* Destaca o preço do produto */
+.product-price {
+    font-size: 1.3rem;
+    color: green;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Organiza a área da consulta individual */
+#resultado-consulta {
+    max-width: 350px;
+    margin: 0 auto 30px;
+}
+
+/* Estiliza mensagens de carregamento e erros */
+.mensagem {
+    text-align: center;
+    color: #555;
+    margin: 20px 0;
+}
+
+/* Adapta a área de consulta para telas pequenas */
+@media (max-width: 500px) {
+    .consulta {
+        flex-direction: column;
+    }
+
+    .consulta input {
+        width: auto;
+    }
+}

@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Define a codificação para aceitar acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página se adaptar a diferentes tamanhos de tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Define o título que aparece na aba do navegador -->
+    <title>Catálogo de Produtos</title>
+
+    <!-- Conecta o arquivo CSS responsável pela aparência da página -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Container principal que organiza o conteúdo da página -->
+    <div class="container">
+
+        <!-- Título principal da página -->
+        <h1>Catálogo de Produtos</h1>
+
+        <!-- Área destinada à consulta individual de produtos -->
+        <div class="consulta">
+
+            <!-- Campo onde o usuário digita o ID do produto -->
+            <input
+                type="number"
+                id="produto-id"
+                placeholder="Digite o ID do produto"
+                min="1"
+            >
+
+            <!-- Botão que executa a consulta do produto pelo ID -->
+            <button id="btn-consultar">
+                Consultar Produto
+            </button>
+
+        </div>
+
+        <!-- Área onde será exibido o resultado da consulta individual -->
+        <div id="resultado-consulta"></div>
+
+        <!-- Subtítulo da lista de produtos -->
+        <h2>Todos os Produtos</h2>
+
+        <!-- Área onde o JavaScript vai inserir os cards dos produtos -->
+        <div id="lista-produtos">
+
+            <!-- Os cards serão criados dinamicamente pelo JavaScript -->
+
+        </div>
+
+    </div>
+
+    <!-- Conecta o arquivo JavaScript responsável pelas funcionalidades -->
+    <script src="script.js"></script>
+
+</body>
+</html>
