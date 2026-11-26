@@ -85,6 +85,9 @@ button:hover {
 .product-info {
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 /* Estiliza o nome do produto */
