@@ -1,9 +1,20 @@
 
+/* Define a paleta de cores do projeto */
+:root {
+    --cor-primaria: #164E63;
+    --cor-secundaria: #EA580C;
+    --cor-hover: #C2410C;
+    --cor-fundo: #F1F5F9;
+    --cor-branco: #FFFFFF;
+    --cor-titulo: #0F172A;
+    --cor-texto: #64748B;
+}
+
 /* Define a aparência geral da página */
 body {
     margin: 0;
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color:  #F1F5F9;
     font-family: Arial, sans-serif;
 }
 
@@ -16,7 +27,7 @@ body {
 /* Estiliza o título principal */
 h1 {
     text-align: center;
-    color: #333;
+    color: #0F172A;
     margin-bottom: 30px;
 }
 
@@ -38,8 +49,8 @@ h1 {
 
 /* Estiliza os botões */
 button {
-    background-color: #198754;
-    color: white;
+    background-color: #EA580C;
+    color: #FFFFFF;
     border: none;
     padding: 12px 20px;
     border-radius: 6px;
@@ -49,7 +60,7 @@ button {
 
 /* Altera a cor do botão quando o mouse passa sobre ele */
 button:hover {
-    background-color: #146c43;
+    background-color: #C2410C;
 }
 
 /* Organiza os cards em uma grade responsiva */
@@ -61,7 +72,7 @@ button:hover {
 
 /* Define a aparência dos cards */
 .product-card {
-    background-color: white;
+    background-color: #FFFFFF;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -95,7 +106,7 @@ button:hover {
 /* Estiliza o nome do produto */
 .product-title {
     font-size: 1.2rem;
-    color: #333;
+    color: #0F172A;
     font-weight: 700;
     margin-bottom: 10px;
     line-height: 1.4;
@@ -104,7 +115,7 @@ button:hover {
 /* Estiliza a descrição do produto */
 .product-description {
     font-size: 0.9rem;
-    color: #666;
+    color: #64748B;
     min-height: 48px;
     line-height: 1.6;
     margin-bottom: 15px;
@@ -113,7 +124,7 @@ button:hover {
 /* Destaca o preço do produto */
 .product-price {
     font-size: 1.3rem;
-    color: green;
+    color: #164E63;
     font-weight: 700;
     margin-bottom: 20px;
     margin-top: auto;
