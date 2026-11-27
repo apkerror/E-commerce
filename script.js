@@ -126,12 +126,12 @@ async function consultaProduto() {
     // Obtém o valor digitado pelo usuário
     const id = campoId.value.trim();
 
-    // Verifica se o campo está vazio ou contém um ID inválido
-    if (id === "" || Number(id) < 1 || !Number.isInteger(Number(id))) {
+    // Verifica se o ID está dentro do intervalo permitido
+if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(id))) {
 
         resultado.innerHTML = `
             <p class="mensagem">
-                Digite um ID válido.
+                Digite um ID válido entre 1 e 20.
             </p>
         `;
 
@@ -218,6 +218,22 @@ async function consultaProduto() {
     no botão de consulta e executa a função correspondente.
 */
 document.getElementById("btn-consultar").addEventListener("click", consultaProduto);
+
+/*
+    Permite consultar um produto pressionando
+    a tecla Enter no campo de ID.
+*/
+document.getElementById("produto-id").addEventListener("keydown", function(evento) {
+
+    if (evento.key === "Enter") {
+
+        evento.preventDefault();
+
+        consultaProduto();
+
+    }
+
+});
 
 
 // ==================================================
