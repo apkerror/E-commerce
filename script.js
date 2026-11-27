@@ -5,6 +5,12 @@
 */
 const API_URL = "https://dummyjson.com/products";
 
+/*
+    Define a quantidade máxima de produtos
+    disponíveis no catálogo.
+*/
+const LIMITE_PRODUTOS = 20;
+
 
 // ==================================================
 // FUNÇÃO PARA CARREGAR OS PRODUTOS
@@ -30,7 +36,7 @@ async function carregaProdutos() {
             O parâmetro limit=20 determina que serão buscados
             somente 20 produtos.
         */
-        const resposta = await fetch(`${API_URL}?limit=20`);
+        const resposta = await fetch(`${API_URL}?limit=${LIMITE_PRODUTOS}`);
 
         // Verifica se a requisição foi realizada corretamente
         if (!resposta.ok) {
@@ -127,11 +133,11 @@ async function consultaProduto() {
     const id = campoId.value.trim();
 
     // Verifica se o ID está dentro do intervalo permitido
-if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(id))) {
+if (id === "" || Number(id) < 1 || Number(id) > LIMITE_PRODUTOS || !Number.isInteger(Number(id))) {
 
         resultado.innerHTML = `
             <p class="mensagem">
-                Digite um ID válido entre 1 e 20.
+                Digite um ID válido entre 1 e ${LIMITE_PRODUTOS}.
             </p>
         `;
 
