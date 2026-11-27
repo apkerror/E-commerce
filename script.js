@@ -167,9 +167,14 @@ if (id === "" || Number(id) < 1 || Number(id) > LIMITE_PRODUTOS || !Number.isInt
         */
         const resposta = await fetch(`${API_URL}/${id}`);
 
-        // Verifica se o produto foi encontrado
-        if (!resposta.ok) {
+        // Verifica se o produto não existe na API
+        if (resposta.status === 404) {
             throw new Error("Produto não encontrado.");
+        }
+
+        // Verifica outros erros na requisição
+        if (!resposta.ok) {
+            throw new Error("Erro ao consultar a API.");
         }
 
         // Converte os dados recebidos para JSON
@@ -210,10 +215,19 @@ if (id === "" || Number(id) < 1 || Number(id) > LIMITE_PRODUTOS || !Number.isInt
 
     } catch (erro) {
 
-        // Informa ao usuário que o produto não foi encontrado
+        // Define uma mensagem de acordo com o erro ocorrido
+        let mensagem = "Não foi possível consultar o produto. Tente novamente.";
+
+        if (erro.message === "Produto não encontrado.") {
+
+            mensagem = "Produto não encontrado. Verifique o ID.";
+
+        }
+
+        // Exibe a mensagem de erro ao usuário
         resultado.innerHTML = `
             <p class="mensagem">
-                Produto não encontrado. Verifique o ID.
+                ${mensagem}
             </p>
         `;
 
