@@ -219,6 +219,22 @@ if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(i
 */
 document.getElementById("btn-consultar").addEventListener("click", consultaProduto);
 
+/*
+    Permite consultar um produto pressionando
+    a tecla Enter no campo de ID.
+*/
+document.getElementById("produto-id").addEventListener("keydown", function(evento) {
+
+    if (evento.key === "Enter") {
+
+        evento.preventDefault();
+
+        consultaProduto();
+
+    }
+
+});
+
 
 // ==================================================
 // INICIALIZAÇÃO DO PROJETO
