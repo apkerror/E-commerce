@@ -49,6 +49,16 @@ async function carregaProdutos() {
         */
         const dados = await resposta.json();
 
+        /*
+            Verifica se a API retornou uma lista
+            de produtos válida.
+        */
+        if (!Array.isArray(dados?.products)) {
+
+            throw new Error("Formato de dados inválido.");
+
+        }    
+
         // Limpa a mensagem de carregamento
         container.innerHTML = "";
 
