@@ -5,6 +5,12 @@
 */
 const API_URL = "https://dummyjson.com/products";
 
+/*
+    Define a quantidade máxima de produtos
+    disponíveis no catálogo.
+*/
+const LIMITE_PRODUTOS = 20;
+
 
 // ==================================================
 // FUNÇÃO PARA CARREGAR OS PRODUTOS
@@ -30,7 +36,7 @@ async function carregaProdutos() {
             O parâmetro limit=20 determina que serão buscados
             somente 20 produtos.
         */
-        const resposta = await fetch(`${API_URL}?limit=20`);
+        const resposta = await fetch(`${API_URL}?limit=${LIMITE_PRODUTOS}`);
 
         // Verifica se a requisição foi realizada corretamente
         if (!resposta.ok) {
@@ -42,6 +48,16 @@ async function carregaProdutos() {
             Assim conseguimos acessar os dados utilizando JavaScript.
         */
         const dados = await resposta.json();
+
+        /*
+            Verifica se a API retornou uma lista
+            de produtos válida.
+        */
+        if (!Array.isArray(dados?.products)) {
+
+            throw new Error("Formato de dados inválido.");
+
+        }    
 
         // Limpa a mensagem de carregamento
         container.innerHTML = "";
@@ -127,11 +143,11 @@ async function consultaProduto() {
     const id = campoId.value.trim();
 
     // Verifica se o ID está dentro do intervalo permitido
-if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(id))) {
+if (id === "" || Number(id) < 1 || Number(id) > LIMITE_PRODUTOS || !Number.isInteger(Number(id))) {
 
         resultado.innerHTML = `
             <p class="mensagem">
-                Digite um ID válido entre 1 e 20.
+                Digite um ID válido entre 1 e ${LIMITE_PRODUTOS}.
             </p>
         `;
 
@@ -151,9 +167,14 @@ if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(i
         */
         const resposta = await fetch(`${API_URL}/${id}`);
 
-        // Verifica se o produto foi encontrado
-        if (!resposta.ok) {
+        // Verifica se o produto não existe na API
+        if (resposta.status === 404) {
             throw new Error("Produto não encontrado.");
+        }
+
+        // Verifica outros erros na requisição
+        if (!resposta.ok) {
+            throw new Error("Erro ao consultar a API.");
         }
 
         // Converte os dados recebidos para JSON
@@ -194,10 +215,19 @@ if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(i
 
     } catch (erro) {
 
-        // Informa ao usuário que o produto não foi encontrado
+        // Define uma mensagem de acordo com o erro ocorrido
+        let mensagem = "Não foi possível consultar o produto. Tente novamente.";
+
+        if (erro.message === "Produto não encontrado.") {
+
+            mensagem = "Produto não encontrado. Verifique o ID.";
+
+        }
+
+        // Exibe a mensagem de erro ao usuário
         resultado.innerHTML = `
             <p class="mensagem">
-                Produto não encontrado. Verifique o ID.
+                ${mensagem}
             </p>
         `;
 
