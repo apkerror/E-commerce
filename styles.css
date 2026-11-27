@@ -97,6 +97,8 @@ button:hover {
     font-size: 1.2rem;
     color: #333;
     font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 /* Estiliza a descrição do produto */
@@ -104,6 +106,8 @@ button:hover {
     font-size: 0.9rem;
     color: #666;
     min-height: 48px;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 /* Destaca o preço do produto */
