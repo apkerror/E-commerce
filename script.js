@@ -126,8 +126,8 @@ async function consultaProduto() {
     // Obtém o valor digitado pelo usuário
     const id = campoId.value.trim();
 
-    // Verifica se o campo está vazio ou contém um ID inválido
-    if (id === "" || Number(id) < 1 || !Number.isInteger(Number(id))) {
+    // Verifica se o ID está dentro do intervalo permitido
+if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(id))) {
 
         resultado.innerHTML = `
             <p class="mensagem">
