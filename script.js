@@ -131,7 +131,7 @@ if (id === "" || Number(id) < 1 || Number(id) > 20 || !Number.isInteger(Number(i
 
         resultado.innerHTML = `
             <p class="mensagem">
-                Digite um ID válido.
+                Digite um ID válido entre 1 e 20.
             </p>
         `;
 
